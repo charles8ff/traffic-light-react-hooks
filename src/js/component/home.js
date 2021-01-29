@@ -23,21 +23,24 @@ export function Home() {
 
 	return (
 		<Fragment>
-			<Bulb
-				allBulbs={allBulbs}
-				onMyClick={mybulb => onUserClick(mybulb)}
-				color={UPPER_COLOR}
-			/>
-			<Bulb
-				allBulbs={allBulbs}
-				onMyClick={mybulb => onUserClick(mybulb)}
-				color={MID_COLOR}
-			/>
-			<Bulb
-				allBulbs={allBulbs}
-				onMyClick={mybulb => onUserClick(mybulb)}
-				color={LOWER_COLOR}
-			/>
+			<div className="container">
+				<Bulb
+					allBulbs={allBulbs}
+					onMyClick={mybulb => onUserClick(mybulb)}
+					color={UPPER_COLOR}
+				/>
+				<Bulb
+					allBulbs={allBulbs}
+					onMyClick={mybulb => onUserClick(mybulb)}
+					color={MID_COLOR}
+				/>
+				<Bulb
+					allBulbs={allBulbs}
+					onMyClick={mybulb => onUserClick(mybulb)}
+					color={LOWER_COLOR}
+				/>
+			</div>
+			<div className="trafficLightPole" />
 		</Fragment>
 	);
 }
