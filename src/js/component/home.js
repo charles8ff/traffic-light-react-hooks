@@ -7,37 +7,39 @@ const MID_COLOR = "warning";
 const LOWER_COLOR = "success";
 
 export function Home() {
-	//const [light, setLight] = useState(false);
-	const [allBulbs, setallBulbs] = useState({
-		danger: false,
-		warning: false,
-		success: false
-	});
-	function onUserClick(mybulb) {
-		setallBulbs({
-			[mybulb]: !allBulbs.mybulb
-		});
+	// const [light, setLight] = useState(false);
+	const [redBulb, setRedBulb] = useState("dark");
+	const [yellowBulb, setYellowBulb] = useState("dark");
+	const [greenBulb, setGreenBulb] = useState("dark");
 
-		console.log(mybulb, allBulbs.mybulb);
-	}
+	const changeColorRed = () => {
+		setRedBulb("danger");
+		setYellowBulb("dark");
+		setGreenBulb("dark");
+	};
 
+	const changeColorYellow = () => {
+		setRedBulb("dark");
+		setYellowBulb("warning");
+		setGreenBulb("dark");
+	};
+
+	const changeColorGreen = () => {
+		setRedBulb("dark");
+		setYellowBulb("dark");
+		setGreenBulb("success");
+	};
 	return (
 		<Fragment>
 			<div className="container">
+				<Bulb onMyClick={() => changeColorRed()} color={redBulb} />
 				<Bulb
-					allBulbs={allBulbs}
-					onMyClick={mybulb => onUserClick(mybulb)}
-					color={UPPER_COLOR}
+					onMyClick={() => changeColorYellow()}
+					color={yellowBulb}
 				/>
 				<Bulb
-					allBulbs={allBulbs}
-					onMyClick={mybulb => onUserClick(mybulb)}
-					color={MID_COLOR}
-				/>
-				<Bulb
-					allBulbs={allBulbs}
-					onMyClick={mybulb => onUserClick(mybulb)}
-					color={LOWER_COLOR}
+					onMyClick={mybulb => changeColorGreen()}
+					color={greenBulb}
 				/>
 			</div>
 			<div className="trafficLightPole" />
